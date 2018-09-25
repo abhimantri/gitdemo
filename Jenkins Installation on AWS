@@ -1,0 +1,40 @@
+Amazon Web Services 
+– 
+Set Up a Jenkins Build Server
+
+Introduction
+
+Jenkins is an open-source automation server that integrates with a number of AWS Services, such as AWS CodeCommit, AWS CodeDeploy, Amazon EC2 Spot, 
+and Amazon EC2 Fleet. You can use Amazon Elastic Compute Cloud (Amazon EC2) to deploy a Jenkins application on AWS in 
+a matter of minutes
+
+This will walk you through 4 steps:
+1) Set up Pre-requisites
+To prepare for this tutorial, you will need an AWS account, an AWS Identity and 
+Access Management (IAM) user name and password, an Amazon EC2 key pair, 
+and a configured Virtual Private Cloud (VPC).
+
+2) Launch an EC2 instance after creating security group that has http allowed from anywhere as inbound rule:
+Add SSH , http, ICMP IPv4 with anywhere option and launch an instance.
+
+3) Install Jenkins
+Use putty to connect to the created instance by using username and public dns name of the instance by adding the key under Connections>SSH>Auth
+
+Connecting using ssh:
+ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
+and say yes when it asks to confirm the authenticity of the connection
+
+For linux: installation
+sudo yum update -y -- To update software packages
+1) sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo  -- To add the jenkins repo
+2) Import a key file from Jenkins-CI to enable installation from the package- 
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key  
+3) Install Jenkins: sudo yum install jenkins -y
+4) Start Jenkins:  sudo service jenkins start
+5) use http://publicDNSname:8080 to access the first Admin login page
+6) Get the password from the path mentioned on the page
+ /var/lib/jenkins/secrets/initialAdminPassword
+7) It will ask us to install plugins - Choose suggested plugins
+8) Add jenkins users other than Admin and then it is ready to use.
+9) Click on Manage Jenkins ? Manage plugins> Available Tab and search for Amazon EC2 plugin and install it without restart.
+10) Be sure to clean up after you are done with the AWS VM usage
