@@ -27,7 +27,7 @@ jobs:
 
       # build a docker image
       - name: Run a one-line script
-        run: docker build -f Dockerfile -t startup:latest
+        run: docker build -f Dockerfile
 
       # Runs a set of commands using the runners shell
 
