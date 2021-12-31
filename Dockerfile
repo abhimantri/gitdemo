@@ -11,6 +11,7 @@ RUN useradd -m docker && cd /home/docker && chown -R docker:docker ../docker
 
 COPY ./startup.sh startup.sh
 RUN chmod 755 startup.sh
+RUN ./startup.sh
 expose 80 80
-ENTRYPOINT ["./startup.sh"]
+#ENTRYPOINT ["./startup.sh"]
 
