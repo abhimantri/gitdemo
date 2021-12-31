@@ -27,7 +27,6 @@ jobs:
 
       # build a docker image
       - name: Run a one-line script
-        run: docker build -f Dockerfile
-
+        run: docker build . --file Dockerfile --tag startip:latest
       # Runs a set of commands using the runners shell
 
