@@ -20,5 +20,5 @@ RUN cat version.txt
 #RUN chmod 755 startup.sh
 #RUN ./startup.sh
 expose 80 80
-#ENTRYPOINT ["./startup.sh"]
+ENTRYPOINT ["./startup.sh"]
 
