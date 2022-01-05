@@ -13,7 +13,7 @@ RUN touch version.txt
 RUN ls -lrt 
 RUN chmod +wx version.txt 
 RUN ls -lrt
-RUN ssh -V | version.txt
+RUN ssh -V 1>version.txt 2>&1
 RUN cat version.txt
 
 #COPY ./startup.sh startup.sh
